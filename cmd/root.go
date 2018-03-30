@@ -79,9 +79,7 @@ func initConfig() {
 	viper.AutomaticEnv()
 
 	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Using config file:", viper.ConfigFileUsed())
-	}
+	viper.ReadInConfig()
 
 	viper.BindPFlag("expensify-user-id", rootCmd.PersistentFlags().Lookup("expensify-user-id"))
 	viper.BindPFlag("expensify-user-secret", rootCmd.PersistentFlags().Lookup("expensify-user-secret"))
