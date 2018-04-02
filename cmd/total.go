@@ -55,7 +55,7 @@ Get the total expenses made between 2018-03-01 and 2018-04-01
 func (t *totalCmdOptions) RunE(cmd *cobra.Command, args []string) error {
 	api := expensify.New(partnerUserID, partnerUserSecret)
 
-	expenses, err := api.GetExpenses("OPEN,SUBMITTED,APPROVED,REIMBURSED,ARCHIVED", "2018-03-01", "2018-04-01", 100)
+	expenses, err := api.GetExpenses("OPEN,SUBMITTED,APPROVED,REIMBURSED,ARCHIVED", t.From, t.To, 100)
 	if err != nil {
 		return err
 	}
